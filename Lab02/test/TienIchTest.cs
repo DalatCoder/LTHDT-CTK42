@@ -52,6 +52,53 @@ namespace Lab02_Test
     }
 
     [Fact]
+    public void TimUCLN_TonTaiUCLN_1SoAm_TraVeUCLN()
+    {
+      //Given
+      int a = -2;
+      int b = 8;
+
+      int expected = 2;
+
+      //When
+      int actual = TienIch.Tim_USCLN(a, b);
+
+      //Then
+      Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void TimUCLN_TonTaiUCLN_2SoAm_TraVeUCLN()
+    {
+      //Given
+      int a = -4;
+      int b = -8;
+
+      int expected = 4;
+
+      //When
+      int actual = TienIch.Tim_USCLN(a, b);
+
+      //Then
+      Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void TimUCLN_1So0_TraVe1()
+    {
+      //Given
+      int a = 0;
+      int b = 5;
+      int expected = 1;
+
+      //When
+      var actual = TienIch.Tim_USCLN(a, b);
+
+      //Then
+      Assert.Equal(expected, actual);
+    }
+
+    [Fact]
     public void TimBCNN_2SoKhongChiaHet_TraVeBCNN()
     {
       //Given

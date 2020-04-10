@@ -4,8 +4,8 @@ namespace Lab02
 {
   public class PhanSo
   {
-    private readonly int _tuSo;
-    private readonly int _mauSo;
+    private int _tuSo;
+    private int _mauSo;
 
     public int TuSo { get => _tuSo; }
     public int MauSo { get => _mauSo; }
@@ -37,11 +37,31 @@ namespace Lab02
       this._mauSo = ps.MauSo;
     }
 
+    public void NhapTuBanPhim()
+    {
+      _tuSo = TienIch.NhapSoNguyen("Nhap vao tu so: ");
+
+      do
+      {
+        _mauSo = TienIch.NhapSoNguyen("Nhap vo mau so: ");
+        if (_mauSo == 0)
+          Console.WriteLine("Mau so khong the bang 0!");
+      } while (_mauSo == 0);
+    }
+
     public static PhanSo RutGonPhanSo(PhanSo ps)
     {
       int ucln = TienIch.Tim_USCLN(ps.TuSo, ps.MauSo);
+      var tuSoRutGon = ps.TuSo / ucln;
+      var mauSoRutGon = ps.MauSo / ucln;
 
-      return new PhanSo(ps.TuSo / ucln, ps.MauSo / ucln);
+      if (tuSoRutGon < 0 && mauSoRutGon < 0)
+      {
+        tuSoRutGon = Math.Abs(tuSoRutGon);
+        mauSoRutGon = Math.Abs(mauSoRutGon);
+      }
+
+      return new PhanSo(tuSoRutGon, mauSoRutGon);
     }
 
     public static PhanSo operator +(PhanSo ps1) => ps1;
@@ -84,7 +104,12 @@ namespace Lab02
     public static bool operator !=(PhanSo ps1, PhanSo ps2)
       => !(ps1 == ps2);
 
-    public override string ToString() => $"({this.TuSo} / {this.MauSo})";
+    public override string ToString()
+    {
+      if (TuSo == 0) return "0";
+      if (MauSo == 1) return TuSo.ToString();
+      return $"({this.TuSo}/{this.MauSo})";
+    }
 
     public override bool Equals(object obj)
     {

@@ -1,3 +1,5 @@
+using System;
+
 namespace Lab02
 {
   public static class TienIch
@@ -14,11 +16,18 @@ namespace Lab02
 
     public static int Tim_USCLN(int a, int b)
     {
+      if (a == 0 || b == 0) return 1;
+
+      // UCLN luon la so duong
+      a = a < 0 ? Math.Abs(a) : a;
+      b = b < 0 ? Math.Abs(b) : b;
+
       while (a != b)
       {
         if (a > b) a = a - b;
         else b = b - a;
       }
+
       return a;
     }
 
@@ -32,6 +41,19 @@ namespace Lab02
       int t = a;
       a = b;
       b = t;
+    }
+
+    public static int NhapSoNguyen(string msg)
+    {
+      int kq;
+      while (true)
+      {
+        Console.Write(msg);
+        bool isValid = int.TryParse(Console.ReadLine(), out kq);
+        if (isValid) break;
+      }
+
+      return kq;
     }
   }
 }

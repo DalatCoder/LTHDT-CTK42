@@ -57,14 +57,22 @@ namespace Lab02
 
     public static void TestPhanSo()
     {
-      var ps1 = new PhanSo(5, 4);
-      var ps2 = new PhanSo(1, 2);
+      var ps1 = new PhanSo();
+      var ps2 = new PhanSo();
 
-      Console.WriteLine(-ps1);   // output: -5 / 4
-      Console.WriteLine($"{ps1} + {ps2} = {ps1 + ps2}");  // output: 14 / 8 = 7 / 4
-      Console.WriteLine($"{ps1} - {ps2} = {ps1 - ps2}");  // output: 6 / 8 = 3 / 4
-      Console.WriteLine($"{ps1} * {ps2} = {ps1 * ps2}");  // output: 5 / 8
-      Console.WriteLine($"{ps1} / {ps2} = {ps1 / ps2}");  // output: 10 / 4 = 5 / 2
+      Console.WriteLine("Nhap vao phan so thu nhat");
+      ps1.NhapTuBanPhim();
+      Console.WriteLine("Nhap vao phan so thu hai");
+      ps2.NhapTuBanPhim();
+
+      Console.WriteLine($"Phan so dau tien: ${ps1}");
+      Console.WriteLine($"Phan so thu hai: ${ps2}");
+
+      Console.WriteLine(-ps1);
+      Console.WriteLine($"{ps1} + {ps2} = {ps1 + ps2}");
+      Console.WriteLine($"{ps1} - {ps2} = {ps1 - ps2}");
+      Console.WriteLine($"{ps1} * {ps2} = {ps1 * ps2}");
+      Console.WriteLine($"{ps1} / {ps2} = {ps1 / ps2}");
       Console.WriteLine($"++{ps1} = {++ps1}");
       Console.WriteLine($"{ps1} == {ps2} ? {ps1 == ps2}");
       Console.WriteLine($"{ps1} != {ps2} ? {ps1 != ps2}");

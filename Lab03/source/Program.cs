@@ -10,8 +10,9 @@ namespace Lab03
       tamThuc_1.NhapTamThucTuBanPhim();
       Console.WriteLine($"Tam thuc dau tien: {tamThuc_1}");
 
-      TamThuc tamThuc_2 = 123;
-      Console.WriteLine($"Tam thuc thu hai:  {tamThuc_2}");
+      var tamThuc_2 = new TamThuc();
+      tamThuc_2.NhapTamThucTuBanPhim();
+      Console.WriteLine($"Tam thuc thu hai: {tamThuc_2}");
     }
   }
 }

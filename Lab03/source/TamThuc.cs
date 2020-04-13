@@ -45,10 +45,37 @@ namespace Lab03
     public static TamThuc operator *(int num, TamThuc tt1)
       => new TamThuc(num * tt1.a, num * tt1.b, num * tt1.c);
 
+    public static TamThuc operator ++(TamThuc tt1)
+    {
+      tt1.c += 1;
+      return tt1;
+    }
+
+    public static bool operator ==(TamThuc tt1, TamThuc tt2)
+    {
+      var tt1_rutGon = TamThuc.RutGonTamThuc(tt1);
+      var tt2_rutGon = TamThuc.RutGonTamThuc(tt2);
+
+      return
+        tt1_rutGon.a == tt2_rutGon.a &&
+        tt1_rutGon.b == tt2_rutGon.b &&
+        tt1_rutGon.c == tt2_rutGon.c;
+    }
+
+    public static bool operator !=(TamThuc tt1, TamThuc tt2)
+      => !(tt1 == tt2);
+
+
+
+    public static explicit operator bool(TamThuc tamThuc)
+      => (Math.Pow(tamThuc.b, 2) - (4 * tamThuc.a * tamThuc.c)) >= 0;
+
     public static implicit operator TamThuc(int num)
     {
       if (num < 0)
         throw new ArgumentException("So nguyen phai lon hon 0 de tien hanh ep kieu!", nameof(num));
+      if (num < 100 || num > 999)
+        throw new ArgumentException("So nguyen phai co 3 chu so!", nameof(num));
 
       int c = num % 10;
       num /= 10;
@@ -57,6 +84,12 @@ namespace Lab03
       int a = num % 10;
 
       return new TamThuc(a, b, c);
+    }
+
+    public static TamThuc RutGonTamThuc(TamThuc tamthuc)
+    {
+      var ucln = TienIch.Tim_USCLN(TienIch.Tim_USCLN(tamthuc.a, tamthuc.b), tamthuc.c);
+      return new TamThuc(tamthuc.a / ucln, tamthuc.b / ucln, tamthuc.c / ucln);
     }
 
     public override string ToString()

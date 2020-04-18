@@ -64,5 +64,19 @@ namespace MaTran_src
 
       return kq;
     }
+
+    public static double NhapSoThuc(string msg)
+    {
+      double kq;
+
+      while (true)
+      {
+        Console.Write(msg);
+        bool isValid = double.TryParse(Console.ReadLine(), out kq);
+        if (isValid) break;
+      }
+
+      return kq;
+    }
   }
 }

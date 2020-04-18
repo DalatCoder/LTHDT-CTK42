@@ -13,6 +13,8 @@ namespace Lab03
       var tamThuc_2 = new TamThuc();
       tamThuc_2.NhapTamThucTuBanPhim();
       Console.WriteLine($"Tam thuc thu hai: {tamThuc_2}");
+
+      var tong = tamThuc_2 + 1234;
     }
   }
 }

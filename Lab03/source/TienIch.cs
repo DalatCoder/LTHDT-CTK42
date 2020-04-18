@@ -46,13 +46,21 @@ namespace Lab03
     public static int NhapSoNguyen(string msg)
     {
       int kq;
+      /*
       while (true)
       {
         Console.Write(msg);
         bool isValid = int.TryParse(Console.ReadLine(), out kq);
         if (isValid) break;
       }
+      */
 
+      bool isValid = true;
+      do {
+        Console.Write(msg);
+        isValid = int.TryParse(Console.ReadLine(), out kq);
+      } while (!isValid);
+      
       return kq;
     }
   }

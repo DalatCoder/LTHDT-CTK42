@@ -113,5 +113,33 @@ namespace MaTran_src
 
       return new MaTran(hang, cot, table);
     }
+
+    private static double TinhGiaTriTichHangVaCot(MaTran mt1, MaTran mt2, int chiSo_hang, int chiSo_cot)
+    {
+      double ketQua = 0;
+
+      for (int i = 0; i < mt1._cot; i++)
+        ketQua += mt1.table[chiSo_hang, i] * mt2.table[i, chiSo_cot];
+
+      return ketQua;
+    }
+
+    public static MaTran operator *(MaTran mt1, MaTran mt2)
+    {
+      if (mt1._cot != mt2._hang)
+        throw new InvalidOperationException("2 ma tran khong hop le!");
+
+      int hang = mt1._hang;
+      int cot = mt2._cot;
+      double[,] table = new double[hang, cot];
+
+      for (int i = 0; i < hang; i++)
+      {
+        for (int j = 0; j < cot; j++)
+          table[i, j] = TinhGiaTriTichHangVaCot(mt1, mt2, i, j);
+      }
+
+      return new MaTran(hang, cot, table);
+    }
   }
 }

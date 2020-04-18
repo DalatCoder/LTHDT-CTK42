@@ -9,22 +9,26 @@ namespace MaTran_src
       try
       {
         Console.WriteLine("\nTao ma tran dau tien ngau nhien");
-        var maTran_1 = MaTran.TaoMaTranNgauNhien();
+        var maTran_1 = MaTran.TaoMaTranTuBanPhim();
         Console.WriteLine("Thong tin ma tran dau tien");
         maTran_1.Show();
 
         Console.WriteLine("\nTao ma tran thu hai ngau nhien");
-        var maTran_2 = MaTran.TaoMaTranNgauNhien();
+        var maTran_2 = MaTran.TaoMaTranTuBanPhim();
         Console.WriteLine("Thong tin ma tran thu hai");
         maTran_2.Show();
 
-        Console.WriteLine("\nMa tran 1 + Ma tran 2");
-        var tong = maTran_1 + maTran_2;
-        tong.Show();
+        // Console.WriteLine("\nMa tran 1 + Ma tran 2");
+        // var tong = maTran_1 + maTran_2;
+        // tong.Show();
 
-        Console.WriteLine("\nMa tran 1 - Ma tran 2");
-        var hieu = maTran_1 - maTran_2;
-        hieu.Show();
+        // Console.WriteLine("\nMa tran 1 - Ma tran 2");
+        // var hieu = maTran_1 - maTran_2;
+        // hieu.Show();
+
+        Console.WriteLine("\nMa tran 1 * Ma tran 2");
+        var tich = maTran_1 * maTran_2;
+        tich.Show();
 
         Console.WriteLine("\nMa tran 1 chuyen vi");
         var maTran_1_chuyenVi = MaTran.ChuyenViMaTran(maTran_1);

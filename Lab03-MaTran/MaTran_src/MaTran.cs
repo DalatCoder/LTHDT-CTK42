@@ -25,6 +25,28 @@ namespace MaTran_src
 
     public int SoHang { get => _hang; }
     public int SoCot { get => _cot; }
+    public bool LaMaTranVuong() => _hang == _cot;
+
+    public bool LaMaTranDoiXung()
+    {
+      if (!this.LaMaTranVuong())
+        throw new InvalidOperationException("Khong phai la ma tran vuong!");
+
+      return this == (MaTran.ChuyenViMaTran(this));
+    }
+
+    public double TinhTongDuongCheoChinh()
+    {
+      if (!this.LaMaTranVuong())
+        throw new InvalidOperationException("Khong phai la ma tran vuong!");
+
+      double ketQua = 0;
+
+      for (int i = 0; i < this._hang; i++)
+        ketQua += this.table[i, i];
+
+      return ketQua;
+    }
 
     public void Show()
     {
@@ -141,5 +163,21 @@ namespace MaTran_src
 
       return new MaTran(hang, cot, table);
     }
+
+    public static bool operator ==(MaTran mt1, MaTran mt2)
+    {
+      if (!MaTran.La2MaTranCungCap(mt1, mt2))
+        return false;
+
+      for (int i = 0; i < mt1._hang; i++)
+        for (int j = 0; j < mt1._cot; j++)
+          if (mt1.table[i, j] != mt2.table[i, j])
+            return false;
+
+      return true;
+    }
+
+    public static bool operator !=(MaTran mt1, MaTran mt2)
+      => !(mt1 == mt2);
   }
 }

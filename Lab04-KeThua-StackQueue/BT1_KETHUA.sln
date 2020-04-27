@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BT1_KETHUA", "BT1_KETHUA.csproj", "{A68BD5C1-B459-47A6-8195-5451C1B3309F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A68BD5C1-B459-47A6-8195-5451C1B3309F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A68BD5C1-B459-47A6-8195-5451C1B3309F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A68BD5C1-B459-47A6-8195-5451C1B3309F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A68BD5C1-B459-47A6-8195-5451C1B3309F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4593D1C2-C078-418A-B25B-E886B78BF934}
+	EndGlobalSection
+EndGlobal

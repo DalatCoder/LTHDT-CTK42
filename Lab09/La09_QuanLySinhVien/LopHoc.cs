@@ -1,12 +1,14 @@
 ﻿using System;
+using System.IO;
 
 namespace Lab09
 {
-    public class LopHoc
+    public class LopHoc : IODatabase
     {
         private SinhVien[] _dssv;
         private int _siSo;
         private int max;
+        private string _data;
 
         public LopHoc()
         {
@@ -16,6 +18,7 @@ namespace Lab09
         }
 
         public int SiSo { get => _siSo; }
+        public string Data { get => _data; }
 
         public void Them_1_SV()
         {
@@ -108,5 +111,28 @@ namespace Lab09
             _siSo -= 1;
         }
 
+        public void Doc(string FileName)
+        {
+            using(var fileReader = new StreamReader(FileName))
+            {
+                _siSo = int.Parse(fileReader.ReadLine());
+                _dssv = new SinhVien[_siSo];
+
+                for (int i = 0; i < _siSo; i++)
+                {
+                    _dssv[i].MSSV = fileReader.ReadLine();
+                    _dssv[i].HoDem = fileReader.ReadLine();
+                    _dssv[i].Ten = fileReader.ReadLine();
+                }
+            }
+        }
+
+        public void Xuat(string FileName)
+        {
+            using (var fileWriter = File.AppendText(FileName))
+            {
+                fileWriter.WriteLine(_data);
+            }
+        }
     }
 }

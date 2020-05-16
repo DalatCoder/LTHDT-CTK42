@@ -6,8 +6,9 @@ namespace Lab09
     {
         static void Main(string[] args)
         {
+            
             LopHoc ctk42 = new LopHoc();
-
+            /*
             int siSo = TienIch.NhapSoNguyen("Nhap vao so luong sinh vien: ");
 
             for (int i = 0; i < siSo; i++)
@@ -41,6 +42,15 @@ namespace Lab09
             Console.WriteLine("Danh sach lop hoc: ");
             Console.WriteLine("Tong so sinh vien: {0}", ctk42.SiSo);
             ctk42.Xuat_DSSV();
+            Console.WriteLine("------------------------------\n");
+            */
+
+            string filename = @"C:\Users\Trong Hieu\DEV\LTHDT-CTK42\Lab09\La09_QuanLySinhVien\data.txt";
+            Console.WriteLine("Doc du lieu tu file:");
+            ctk42.Doc(filename);
+
+            Console.WriteLine("Du lieu vua doc la: ");
+            Console.WriteLine(ctk42.Data);
 
             Console.ReadLine();
         }

@@ -6,12 +6,14 @@ namespace KiemTra_CC
     {
         static void Main(string[] args)
         {
-            string path = @"C:\Users\Trong Hieu\DEV\LTHDT-CTK42\KiemTra_CuoiCung\KiemTra_CC\data.txt";
+            // string path = @"C:\Users\Trong Hieu\DEV\LTHDT-CTK42\KiemTra_CuoiCung\KiemTra_CC\data.txt";
+            // Lưu file ở trong tập tin có tên data.txt trong ổ đĩa D, thư mục data
+            string path = @"D:\data\data.txt";
 
             QuanLyGV quanLy = new QuanLyGV();
 
-            //quanLy.NhapDSGV();
-            quanLy.Read(path);
+            quanLy.NhapDSGV();
+            // quanLy.Read(path); // chỉ đọc khi nào đã có file mã hoá
             quanLy.XuatDSGV();
             quanLy.Write(path);
 
